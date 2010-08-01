@@ -1,0 +1,4 @@
+rails -v 2.3.5
+haml -v 2.2.20
+nokogiri
+kdtree
