@@ -1,0 +1,26 @@
+%h1
+  Choropleth Map Generator
+%p
+  The generator expects a file of tab separated values (.tsv),
+  where each row is terminated with a new line.
+%p
+  Given a data file with an identifier (ie. a FIPS county code or state abbreviation) and an associated count (ie. number of bars, number of sex offenders, unemployment, etc)
+  the generator will return a chloropleth mapping of the data.  
+.flowbox
+  -form_tag('/map/create', :multipart => true) do 
+    %ul
+      %li
+        Filename
+        =file_field_tag :filename, :size => '45'
+      %li
+        Color Scheme
+        =select_tag :color_scheme, options_for_select(Map::COLORS) 
+      %li
+        Type
+        =select_tag :type,  options_for_select(Map::MAP_TYPES)
+        (Counties map for FIPS codes, States map for state abbreviations)
+      %br
+      =submit_tag "Create Map"
+
+This is a frontend for the #{link_to "ChoroMap","http://github.com/Ganglion/ChoroMap"} library built by  #{link_to "Jacob Perkins","http://github.com/Ganglion"}
+

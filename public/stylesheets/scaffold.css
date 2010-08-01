@@ -1,0 +1,53 @@
+html { height: 100%; } 
+
+body {
+ background-color: #F5FFFA;
+ color: #333;
+ height:100%;
+ margin: 0px;
+ padding: 0px;
+}
+
+body, p, ol, ul, td {
+  font-family: georgia,verdana, arial, helvetica, sans-serif;
+  font-size:   13px;
+  line-height: 18px;
+}
+
+table, td, th
+{
+}
+td, th
+{
+color:black;
+font-style: normal;
+}
+
+ul, li {
+list-style:none;
+
+}
+
+.flowbox {
+  display: block;  
+  background-color: #DCDCDC;
+  border: 1px solid #696969;
+  padding: 15px 10px 10px 15px;
+  -moz-border-radius: 2px; 
+  -webkit-border-radius: 2px;
+  overflow:auto;
+}
+
+#container {
+ padding-bottom:125px;
+ overflow:auto;
+ width: 750px;
+ margin: 0 auto;
+}
+
+
+
+
+
+
+
