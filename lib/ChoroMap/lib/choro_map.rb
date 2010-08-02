@@ -10,6 +10,7 @@ class Choromap
   def initialize(filename, options = {:color_scheme => 'YlOrRd'})
     @counts = {}
     @colors = hex_color_array(options[:color_scheme])
+    @type = ""
     read(filename)
     scale_data
   end
@@ -26,12 +27,14 @@ class Choromap
   def read filename
     File.readlines(filename).each do |line|
       row = line.strip.split
+      #determine which map type to use, state abbr. will always be 2 characters
+      @type = row.first.length == 2 ? "usa" : "counties"
       counts[row.first] = row.last.to_i
     end
   end
 
-  def choropleth! map_type
-    mapname = "maps/" + map_type + ".svg"
+  def choropleth!
+    mapname = "maps/" + @type + ".svg"
     @svg_map = Nokogiri::XML(open(mapname))
     paths    = svg_map.css('path')
     edit_paths paths

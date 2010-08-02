@@ -4,10 +4,10 @@ class Map
 
   #generates a choromap to be sent back to the user.
   #currently just overwrites a temp file each time
-  def self.generate_map file, type, color_scheme
+  def self.generate_map file, color_scheme
     map = Choromap.new(file.path, :color_scheme => color_scheme)
-    svg = map.choropleth! type
-    File.open("#{RAILS_ROOT}/tmp/#{File.basename(path,'.tsv')}_choropleth.svg", "w+") { |f| f.write(svg.to_s) }
+    svg = map.choropleth!
+    File.open("#{RAILS_ROOT}/tmp/map_choropleth.svg", "w+") { |f| f.write(svg.to_s) }
   end
 
   COLORS =
