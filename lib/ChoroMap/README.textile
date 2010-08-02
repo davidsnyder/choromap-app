@@ -1,0 +1,44 @@
+h1. ChoroMap
+
+ChoroMap is a simple ruby script (and some blank maps from wikimedia) to make a colorized map of the USA based on count data. That is, given a data file with an identifier (ie. a FIPS code or state abbreviation) and an associated count (ie. number of bars, number of sex offenders, unemployment, etc ) you can quickly and easily generate a map like the one shown here:
+
+"The Country Is Bleeding":http://flowingdata.com/2009/11/04/unemployment-2004-to-present-the-country-is-bleeding/
+
+Which, incidentally, is what inspired this script in the first place.
+
+
+
+h2. USAGE:
+
+<pre><code>
+    ./choro_map.rb <datafile> <map_type> > <output.svg>
+</code></pre>
+
+
+Where it is assumed your "datafile" has rows that look like:
+
+"identifier" "\t" "count"
+
+and identifier is a county code or state abbreviation depending on whether "map" is
+"usa" or "counties". See sample data.
+
+h3. Using the Geo to FIPS utility
+
+Wait! But my data doesn't have fips codes in it! All I've got are these stupid (lat,lon,count) tuples!
+
+If, instead of "fips" "\t" "count", you have "lat" "\t" "lon" "\t" "count" don't get frustrated just yet. There's a script for that.
+From the command line:
+
+<pre><code>
+    cat /your/data/file | bin/geo_to_county_streamer.rb --map | sort | bin/geo_to_county_streamer.rb --reduce > happy_datafile.tsv
+</code></pre>
+
+OR if you have a HUGE datafile you can run it in Hadoop mode. Of course, this is assuming you've got a Hadoop cluster lying around,
+which, frankly, you should if you have HUGE data.
+
+<pre><code>
+    bin/geo_to_county_streamer.rb --rm --run /input/data/file /output/datafile
+</code></pre>
+
+
+The output is then ready to use with ChoroMap.
