@@ -10,15 +10,15 @@ class MapController < ApplicationController
   end
 
   def show
-    send_file "#{RAILS_ROOT}/tmp/map_choropleth.svg"
+    send_file "#{RAILS_ROOT}/tmp/map_choropleth.svg", :type => "image/svg+xml"
   end
 
   def sample
-    send_file "#{RAILS_ROOT}/maps/us-pools.svg"
+    send_file "#{RAILS_ROOT}/maps/us-pools.svg", :type => "image/svg+xml"
   end
 
   def sample_data
-    send_file "#{RAILS_ROOT}/maps/fips-pools.tsv"
+    send_file "#{RAILS_ROOT}/maps/fips-pools.tsv", :type => "application/tsv"
   end
 
 end
