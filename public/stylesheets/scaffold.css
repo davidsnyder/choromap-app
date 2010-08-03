@@ -1,11 +1,11 @@
 html { height: 100%; } 
 
 body {
- background-color: #F5FFFA;
- color: #333;
- height:100%;
- margin: 0px;
- padding: 0px;
+  background-color: #F5FFFA;
+  color: #333;
+  height:100%;
+  margin: 0px;
+  padding: 0px;
 }
 
 body, p, ol, ul, td {
@@ -14,18 +14,14 @@ body, p, ol, ul, td {
   line-height: 18px;
 }
 
-table, td, th
-{
-}
-td, th
-{
-color:black;
-font-style: normal;
-}
-
 ul, li {
-list-style:none;
+  list-style: none;
+}
 
+#map {
+  margin: 0 auto;
+  width: 575px;
+  
 }
 
 .flowbox {
@@ -39,15 +35,8 @@ list-style:none;
 }
 
 #container {
- padding-bottom:125px;
- overflow:auto;
- width: 750px;
- margin: 0 auto;
+  padding-bottom:125px;
+  overflow:auto;
+  width: 750px;
+  margin: 0 auto;
 }
-
-
-
-
-
-
-

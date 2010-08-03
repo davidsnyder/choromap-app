@@ -5,8 +5,8 @@ ActionController::Routing::Routes.draw do |map|
   #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
   # Keep in mind you can assign values other than :controller and :action
   map.show 'show', :controller => "map", :action => "show"
-  map.sample 'sample', :controller => "map", :action => "sample"
   map.sample_data 'data', :controller => "map", :action => "sample_data"
+  map.sample 'sample', :controller => "map", :action => "sample"
   # Sample of named route:
   #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
   # This route can be invoked with purchase_url(:id => product.id)
