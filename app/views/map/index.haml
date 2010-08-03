@@ -11,11 +11,15 @@
   As a timely example, here is a mapping of FIPS county codes and associated number of swimming pools.
   %br
   =link_to "Download Data", sample_data_path
-%a#show(title="View Sample Map" href="/sample") View Sample Map 
+  %a#show(title="View Sample Map" href="/sample") View Sample Map
+  %br
 #sample
   #map
     %object{ :data => "images/us-pools.svg", :type => "image/svg+xml",  :width=> "575",  :height => "375"}
-
+-if flash[:error]      
+  #errorExplanation
+    %p
+      =flash[:error]
 .flowbox
   -form_tag('/map/create', :multipart => true) do 
     %ul

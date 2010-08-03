@@ -40,3 +40,14 @@ ul, li {
   width: 750px;
   margin: 0 auto;
 }
+
+#errorExplanation {
+  border: 2px solid red;
+  margin-bottom: 15px;
+  background-color: #f0f0f0;
+}
+
+#errorExplanation p{
+  font-size: 20px;
+  text-align: center;
+}

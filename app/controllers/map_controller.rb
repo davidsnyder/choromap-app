@@ -1,8 +1,13 @@
 class MapController < ApplicationController
 
   def create
-    Map.generate_map(params[:filename], params[:color_scheme])
-    redirect_to show_path
+    if params[:filename]
+      Map.generate_map(params[:filename], params[:color_scheme])
+      redirect_to show_path
+    else
+      flash[:error] = "You did not submit a file to process!"
+      redirect_to :action => "index"
+    end
   end
 
   def index
